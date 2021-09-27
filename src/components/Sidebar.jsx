@@ -16,7 +16,7 @@ const Sidebar = () => {
         </ComposeWraper>
         <SideButtonsWrapper>
           {SidebarButtonItems.map((item, index) => (
-            <SidebarButtonItem key={index}>
+            <SidebarButtonItem key={index} >
               {item.icon}
               {item.text}
             </SidebarButtonItem>
@@ -54,6 +54,7 @@ const Sidebar = () => {
 export default Sidebar;
 
 const Wrapper = styled.div`
+  width: 18%;
   border-right: 1px solid lightgray;
   height: calc(100vh - 70px);
   display: flex;

@@ -1,21 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import CheckBoxIcon from '@mui/icons-material/CheckBox';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EmailItem from './EmailItem';
+import { useHistory } from 'react-router';
+import pagePath from '../constants/pagePath';
 
 const EmailsView = () => {
+  const history = useHistory();
+
+  const handleMail = (mailId) => {
+    history.push(pagePath.singleMail);
+  };
   return (
     <Wrrapper>
-      <TopWrapper>
-        <CheckBoxIcon />
-        <RefreshIcon />
-        <MoreVertIcon />
-      </TopWrapper>
-      <EmailsContainer>
+      <EmailsContainer onClick={() => handleMail()}>
         {emailData.map(
-          ({ starred, from, subject, message, received, read }, index) => (
+          ({ id, starred, from, subject, message, received, read }, index) => (
             <EmailItem
               starred={starred}
               from={from}
@@ -35,16 +34,12 @@ const EmailsView = () => {
 export default EmailsView;
 
 const Wrrapper = styled.div``;
-const TopWrapper = styled.div`
-  color: gray;
-  padding-left: 20px;
-  height: 30px;
-  margin-top: 10px;
-`;
+
 const EmailsContainer = styled.div``;
 
 const emailData = [
   {
+    id: 1,
     starred: true,
     from: 'User1',
     subject: 'Greetings',
@@ -53,6 +48,7 @@ const emailData = [
     read: true,
   },
   {
+    id: 2,
     starred: false,
     from: 'User2',
     subject: 'Teabreak',
@@ -61,11 +57,48 @@ const emailData = [
     read: false,
   },
   {
+    id: 3,
     starred: true,
     from: 'User3',
     subject: 'JS',
     message: 'Material UI is better than styled components',
     received: '7:20',
     read: false,
+  },
+  {
+    id: 4,
+    starred: true,
+    from: 'User1',
+    subject: 'Greetings',
+    message: 'Happy birthday bro',
+    received: '11:59',
+    read: true,
+  },
+  {
+    id: 5,
+    starred: false,
+    from: 'User2',
+    subject: 'Teabreak',
+    message: 'Sunday is not for work',
+    received: '6:30',
+    read: false,
+  },
+  {
+    id: 6,
+    starred: true,
+    from: 'User3',
+    subject: 'JS',
+    message: 'Material UI is better than styled components',
+    received: '7:20',
+    read: false,
+  },
+  {
+    id: 7,
+    starred: true,
+    from: 'User1',
+    subject: 'Greetings',
+    message: 'Happy birthday bro',
+    received: '11:59',
+    read: true,
   },
 ];

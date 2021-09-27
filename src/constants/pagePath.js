@@ -1,5 +1,9 @@
 const pagePath = {
-  home: '/home',
+  default: '/',
+  inbox: '/inbox',
+  starred: '/starred',
+  singleMail: '/singleMail',
+  composeMail:"/composeMail"
 };
 
 export default pagePath;
