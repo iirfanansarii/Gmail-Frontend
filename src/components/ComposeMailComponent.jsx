@@ -17,9 +17,9 @@ const useStyles = makeStyles((theme) => ({
     width: '40%',
     padding: '10px',
     border: '1px solid #404040',
-    position: 'absolute',
-    bottom: '10%',
-    right: '19%',
+    position: 'fixed',
+    bottom: '1%',
+    right: '1%',
   },
   postContent: {
     background: 'white',
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '20px',
   },
   textField: {
-      padding: "5px",
+    padding: '5px',
     width: '100%',
     margin: '5px',
     color: 'inherit',
@@ -100,10 +100,10 @@ const useStyles = makeStyles((theme) => ({
       color: '#393939',
     },
   },
- 
 }));
 
 const ComposeMailComponent = () => {
+  
   const classes = useStyles();
   return (
     <div classNam={classes.root}>
@@ -137,7 +137,14 @@ const ComposeMailComponent = () => {
             className={classes.textField}
           />
         </Grid>
-        <Grid xs={12} sm={120} md={12} lg={12} xl={12} className={classes.textContainer}>
+        <Grid
+          xs={12}
+          sm={120}
+          md={12}
+          lg={12}
+          xl={12}
+          className={classes.textContainer}
+        >
           <span>Subject</span>
           <TextField
             id="standard-helperText"

@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddIcon from '@mui/icons-material/Add';
+import ComposeMailComponent from '../ComposeMailComponent';
 
 const Compose = () => {
+  const [composeMailStatus, setComposeMailStatus] = useState(false);
+
+  const handleComposeNewMail = () => {
+    if (composeMailStatus) {
+      setComposeMailStatus(false);
+    } else {
+      setComposeMailStatus(true);
+    }
+  };
+
   return (
-    <Wrapper>
+    <Wrapper onClick={handleComposeNewMail}>
       <AddIcon fontSize="large" />
       <p>Compose</p>
+      <CompostMailWrapper>
+        {composeMailStatus ? <ComposeMailComponent /> : ''}
+      </CompostMailWrapper>
     </Wrapper>
   );
 };
@@ -43,3 +57,5 @@ const Wrapper = styled.div`
       0 1px 3px 1px rgb(60 64 67 / 15%);
   }
 `;
+
+const CompostMailWrapper = styled.div``;

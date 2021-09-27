@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Compose from './buttons/Compose';
 import { SidebarButtonItems } from './buttons/SideBarButtonItems';
@@ -6,6 +6,7 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 import KeyboardIcon from '@mui/icons-material/Keyboard';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { bottomIcons } from './buttons/ButtomIconsData';
+import ComposeMailComponent from '../components/ComposeMailComponent';
 
 const Sidebar = () => {
   return (
@@ -16,7 +17,7 @@ const Sidebar = () => {
         </ComposeWraper>
         <SideButtonsWrapper>
           {SidebarButtonItems.map((item, index) => (
-            <SidebarButtonItem key={index} >
+            <SidebarButtonItem key={index}>
               {item.icon}
               {item.text}
             </SidebarButtonItem>
